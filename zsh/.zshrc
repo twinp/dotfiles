@@ -1,16 +1,16 @@
+# Uncomment if you want to profile zsh using zprof
+# zmodload zsh/zprof
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/romain/.oh-my-zsh"
+export ZSH=$HOME/.dotfiles/oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="agnoster"
-
-# Set default user to remove useless prompt info
-DEFAULT_USER="romain"
+ZSH_THEME=robbyrussell
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -29,13 +29,13 @@ DEFAULT_USER="romain"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-COMPLETION_WAITING_DOTS="true"
+# COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -55,11 +55,13 @@ COMPLETION_WAITING_DOTS="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-    git
     zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
+
+# Remove name in prompt
+DEFAULT_USER=`whoami`
 
 # User configuration
 
@@ -73,7 +75,7 @@ if [[ -n $SSH_CONNECTION ]]; then
    export EDITOR='emacs'
  else
    export EDITOR='emacs'
-fi
+ fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -89,3 +91,4 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
