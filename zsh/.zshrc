@@ -10,7 +10,7 @@ export ZSH=$HOME/.dotfiles/oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME=robbyrussell
+ZSH_THEME=blinks
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -71,11 +71,7 @@ DEFAULT_USER=`whoami`
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-   export EDITOR='emacs'
- else
-   export EDITOR='emacs'
- fi
+export EDITOR='emacs'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
