@@ -1,8 +1,3 @@
-
-;; Added by Package.el.  This must come before configurations of
-;; installed packages.  Don't delete this line.  If you don't want it,
-;; just comment it out by adding a semicolon to the start of the line.
-;; You may delete these explanatory comments.
 (package-initialize)
 
 (custom-set-variables
@@ -19,14 +14,14 @@
  '(ns-auto-hide-menu-bar t)
  '(org-agenda-files
    (quote
-    ("~/Dropbox/Orgzly/finance.org" "~/Dropbox/Orgzly/grab.org")))
+    ("~/Dropbox/Orgzly/work.org" "~/Dropbox/Orgzly/explore-new.org" "~/Dropbox/Orgzly/perso.org" "~/Dropbox/Orgzly/geek.org" "~/Dropbox/Orgzly/finance.org")))
  '(package-archives
    (quote
     (("gnu" . "https://elpa.gnu.org/packages/")
      ("melpa" . "http://melpa.org/packages/"))))
  '(package-selected-packages
    (quote
-    (color-theme color-theme-solarized go-guru go-mode magit org))))
+    (org-pomodoro color-theme color-theme-solarized go-guru go-mode magit org))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -34,4 +29,4 @@
  ;; If there is more than one, they won't work right.
  )
 
-(load-theme 'solarized)
+(org-babel-load-file "~/.emacs.d/configuration.org")
