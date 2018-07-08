@@ -1,7 +1,71 @@
-* Theming
+#+TITLE: Emacs Configuration
+#+AUTHOR: Romain Basseville
+#+EMAIL: romain.basseville@gmail.com
+
+* Package management
+** Configure =use-package=
+#+BEGIN_SRC emacs-lisp
+  (unless (package-installed-p 'use-package)
+    (package-refresh-contents)
+    (package-install 'use-package))
+
+  (setq use-package-verbose t)
+  (setq use-package-always-ensure t)
+
+  (require 'use-package)
+#+END_SRC
+
+** Compile packages and use newer
+#+BEGIN_SRC emacs-lisp
+  (use-package auto-compile
+    :config (auto-compile-on-load-mode))
+  (setq load-prefer-newer t)
+#+END_SRC
+** Auto update packages
+Packages will be updated every 4 days, and the old packages will be removed.
+#+BEGIN_SRC emacs-lisp
+  (use-package auto-package-update
+     :config
+     (setq auto-package-update-delete-old-versions t
+	   auto-package-update-interval 4)
+     (auto-package-update-maybe))
+#+END_SRC
+* Personal information
+
+#+BEGIN_SRC emacs-lisp
+  (setq user-full-name "Romain Basseville"
+        user-mail-address "romain.basseville@gmail.com"
+        )
+#+END_SRC
+
+* Org
+Use org and set agenda files
+#+BEGIN_SRC emacs-lisp
+  (use-package org
+    :config
+    (use-package org-pomodoro)
+    (setq org-agenda-files
+	  (quote
+	   ("~/Dropbox/Orgzly/work.org"
+	    "~/Dropbox/Orgzly/explore-new.org"
+	    "~/Dropbox/Orgzly/perso.org"
+	    "~/Dropbox/Orgzly/geek.org"
+	    "~/Dropbox/Orgzly/finance.org"))))
+
+#+END_SRC
+
+Make today's agenda the startup screen
+#+BEGIN_SRC emacs-lisp
+(setq inhibit-splash-screen t)
+(org-agenda-list 1)
+(delete-other-windows)
+#+END_SRC
+* Theme
 Solarized dark theme
 #+BEGIN_SRC emacs-lisp
-(load-theme 'solarized)
+  (use-package solarized-theme
+    :config 
+    (load-theme 'solarized-dark t))
 #+END_SRC
 
 ** Remove bars
@@ -9,7 +73,52 @@ Solarized dark theme
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
 (menu-bar-mode -1)
+(setq ns-auto-hide-menu-bar t)
 #+END_SRC
 
+** Babel code block
+Source code block syntax highlighting
+#+BEGIN_SRC emacs-lisp
+  (setq org-src-fontify-natively t)
+#+END_SRC
 
+Make TAB act as if it were issued in a buffer of the language's major mode.
 
+#+BEGIN_SRC emacs-lisp
+  (setq org-src-tab-acts-natively t)
+#+END_SRC
+
+Quickly insert a block of elisp and shell:
+#+BEGIN_SRC emacs-lisp
+  (add-to-list 'org-structure-template-alist
+	       '("el" "#+BEGIN_SRC emacs-lisp\n?\n#+END_SRC")
+	       '("sh" "#+BEGIN_SRC sh\n?\n#+END_SRC"))
+#+END_SRC
+
+* Calendar
+#+BEGIN_SRC emacs-lisp
+(setq calendar-week-start-day 1
+calendar-latitude 103.886114
+calendar-longitude 1.311787)
+#+END_SRC
+
+** Calendar events in =org-agenda=
+#+BEGIN_SRC emacs-lisp
+(setq org-agenda-include-diary t)
+#+END_SRC
+
+** TODO people birthday
+** TODO public holidays
+** TODO sunrise sunset
+* Git
+#+BEGIN_SRC emacs-lisp
+  (use-package magit
+    :bind ("C-x g" . magit-status))
+#+END_SRC
+
+* Golang
+#+BEGIN_SRC emacs-lisp
+  (use-package go-mode
+    :config
+    (use-package go-guru))
+#+END_SRC
