@@ -138,5 +138,9 @@ Replace 'yes' by 'y', 'no' by 'n' everywhere
 (defalias 'yes-or-no-p 'y-or-n-p)
 #+END_SRC
 
+Kill current buffer without prompt
+#+BEGIN_SRC emacs-lisp
+  (global-set-key (kbd "C-x k") 'kill-this-buffer)
+#+END_SRC
 
 
