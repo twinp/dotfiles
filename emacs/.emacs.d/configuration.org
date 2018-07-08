@@ -95,6 +95,12 @@ Quickly insert a block of elisp and shell:
 	       '("sh" "#+BEGIN_SRC sh\n?\n#+END_SRC"))
 #+END_SRC
 
+** Window splitting
+Split vertically by default
+#+BEGIN_SRC emacs-lisp
+(setq split-height-threshold nil)
+(setq split-width-threshold 0)
+#+END_SRC
 * Calendar
 #+BEGIN_SRC emacs-lisp
 (setq calendar-week-start-day 1
@@ -115,10 +121,22 @@ calendar-longitude 1.311787)
   (use-package magit
     :bind ("C-x g" . magit-status))
 #+END_SRC
-
+** Follow symlink instead of prompting
+To avoid message: Symbolic link to Git-controlled source file; follow link? (y or n)
+#+BEGIN_SRC emacs-lisp
+  (setq vc-follow-symlinks t)
+#+END_SRC
 * Golang
 #+BEGIN_SRC emacs-lisp
   (use-package go-mode
     :config
     (use-package go-guru))
 #+END_SRC
+* Keystroke optimisation
+Replace 'yes' by 'y', 'no' by 'n' everywhere
+#+BEGIN_SRC emacs-lisp
+(defalias 'yes-or-no-p 'y-or-n-p)
+#+END_SRC
+
+
+
