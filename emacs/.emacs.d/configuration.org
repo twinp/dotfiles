@@ -47,7 +47,7 @@ Use org and set agenda files
     (setq org-agenda-files
 	  (quote
 	   ("~/Dropbox/Orgzly/work.org"
-	    "~/Dropbox/Orgzly/explore-new.org"
+	    "~/Dropbox/Orgzly/explore.org"
 	    "~/Dropbox/Orgzly/perso.org"
 	    "~/Dropbox/Orgzly/geek.org"
 	    "~/Dropbox/Orgzly/finance.org"))))
@@ -70,10 +70,10 @@ Solarized dark theme
 
 ** Remove bars
 #+BEGIN_SRC emacs-lisp
-(scroll-bar-mode -1)
-(tool-bar-mode -1)
-(menu-bar-mode -1)
-(setq ns-auto-hide-menu-bar t)
+  (scroll-bar-mode -1)
+  (tool-bar-mode -1)
+  (menu-bar-mode -1)
+  (setq ns-auto-hide-menu-bar t)
 #+END_SRC
 
 ** Babel code block
@@ -83,12 +83,11 @@ Source code block syntax highlighting
 #+END_SRC
 
 Make TAB act as if it were issued in a buffer of the language's major mode.
-
 #+BEGIN_SRC emacs-lisp
   (setq org-src-tab-acts-natively t)
 #+END_SRC
 
-Quickly insert a block of elisp and shell:
+Quickly insert a block of elisp and shell
 #+BEGIN_SRC emacs-lisp
   (add-to-list 'org-structure-template-alist
 	       '("el" "#+BEGIN_SRC emacs-lisp\n?\n#+END_SRC")
@@ -98,8 +97,8 @@ Quickly insert a block of elisp and shell:
 ** Window splitting
 Split vertically by default
 #+BEGIN_SRC emacs-lisp
-(setq split-height-threshold nil)
-(setq split-width-threshold 0)
+  (setq split-height-threshold nil)
+  (setq split-width-threshold 0)
 #+END_SRC
 * Calendar
 #+BEGIN_SRC emacs-lisp
@@ -110,7 +109,7 @@ calendar-longitude 1.311787)
 
 ** Calendar events in =org-agenda=
 #+BEGIN_SRC emacs-lisp
-(setq org-agenda-include-diary t)
+  (setq org-agenda-include-diary t)
 #+END_SRC
 
 ** TODO people birthday

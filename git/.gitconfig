@@ -1,0 +1,7 @@
+[user]
+	email = romain.basseville@gmail.com
+	name = Romain
+[credential]
+	helper = /usr/share/git/credential/gnome-keyring/git-credential-gnome-keyring
+[core]
+	excludesfile = ~/.gitignore_global
