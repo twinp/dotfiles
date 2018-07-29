@@ -39,11 +39,10 @@ Packages will be updated every 4 days, and the old packages will be removed.
 #+END_SRC
 
 * Org
-Use org and set agenda files
+** Use org and set agenda files
 #+BEGIN_SRC emacs-lisp
   (use-package org
     :config
-    (use-package org-pomodoro)
     (setq org-agenda-files
 	  (quote
 	   ("~/Dropbox/Orgzly/work.org"
@@ -53,12 +52,17 @@ Use org and set agenda files
 	    "~/Dropbox/Orgzly/finance.org"))))
 
 #+END_SRC
-
-Make today's agenda the startup screen
+** Pomodoro
 #+BEGIN_SRC emacs-lisp
-(setq inhibit-splash-screen t)
-(org-agenda-list 1)
-(delete-other-windows)
+  (use-package org-pomodoro
+    :after org)
+#+END_SRC
+
+** Make today's agenda the startup screen
+#+BEGIN_SRC emacs-lisp
+  (setq inhibit-splash-screen t)
+  (org-agenda-list 1)
+  (delete-other-windows)
 #+END_SRC
 * Theme
 Solarized dark theme
@@ -125,25 +129,29 @@ To avoid message: Symbolic link to Git-controlled source file; follow link? (y o
 #+BEGIN_SRC emacs-lisp
   (setq vc-follow-symlinks t)
 #+END_SRC
-* Golang
+* Programming Languages
+#+BEGIN_SRC emacs-lisp
+(use-package flycheck :ensure t :pin melpa)
+(use-package company :ensure t :pin melpa)
+#+END_SRC
+** Golang
 #+BEGIN_SRC emacs-lisp
   (use-package go-mode
     :config
     (use-package go-guru))
 #+END_SRC
-* Javascript
+** Javascript
 Tuto
 https://emacs.cafe/emacs/javascript/setup/2017/04/23/emacs-setup-javascript.html
 
 All the conf comes from
 https://github.com/CSRaghunandan/.emacs.d/blob/master/setup-files/setup-js.el
-** js2-mode
+*** js2-mode
 #+BEGIN_SRC emacs-lisp
   (use-package js2-mode
     :mode (("\\.js$" . js2-mode))
     :hook ((js2-mode . (lambda ()
 			 (flycheck-mode)
-			 (my-tide-setup-hook)
 			 (company-mode))))
     :config
     ;; use eslint_d instead of eslint for faster linting
@@ -153,7 +161,7 @@ https://github.com/CSRaghunandan/.emacs.d/blob/master/setup-files/setup-js.el
 
 #+END_SRC
 
-** js2-refactor
+*** js2-refactor
 #+BEGIN_SRC emacs-lisp
   (use-package js2-refactor
     :after js2-mode
@@ -204,21 +212,19 @@ https://github.com/CSRaghunandan/.emacs.d/blob/master/setup-files/setup-js.el
       ("q" nil)))
 #+END_SRC
 
-** rjsx-mode
+*** rjsx-mode
 #+BEGIN_SRC emacs-lisp
   (use-package rjsx-mode
     :after js2-mode
     :mode ("\\.jsx$" . rjsx-mode)
     :hook (rjsx-mode . (lambda ()
 			 (flycheck-mode)
-			 (my-tide-setup-hook)
 			 (company-mode)
-			 (indium-interaction-mode -1)
 			 (js2-refactor-mode -1)))
   :config (unbind-key "C-c C-l" rjsx-mode-map))
 #+END_SRC
 
-** json
+*** json
 #+BEGIN_SRC emacs-lisp
   (use-package json-mode
     :config
@@ -227,7 +233,7 @@ https://github.com/CSRaghunandan/.emacs.d/blob/master/setup-files/setup-js.el
     (setq json-reformat:pretty-string? t)
     (setq js-indent-level 2))
 #+END_SRC
-** Indium
+*** Indium
 debugging with browser by connecting emacs to a browser tab
 * Keystroke optimisation
 Replace 'yes' by 'y', 'no' by 'n' everywhere
