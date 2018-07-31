@@ -137,8 +137,10 @@ To avoid message: Symbolic link to Git-controlled source file; follow link? (y o
 ** Golang
 #+BEGIN_SRC emacs-lisp
   (use-package go-mode
-    :config
-    (use-package go-guru))
+    :mode "\\.go\\'"
+    :interpreter "go")
+  (use-package go-guru
+    :after go-mode)
 #+END_SRC
 ** Javascript
 Tuto
