@@ -148,18 +148,21 @@ https://emacs.cafe/emacs/javascript/setup/2017/04/23/emacs-setup-javascript.html
 
 All the conf comes from
 https://github.com/CSRaghunandan/.emacs.d/blob/master/setup-files/setup-js.el
+*** TODO prettier
+https://github.com/prettier/prettier-emacs
 *** js2-mode
 #+BEGIN_SRC emacs-lisp
   (use-package js2-mode
-    :mode (("\\.js$" . js2-mode))
-    :hook ((js2-mode . (lambda ()
+    :mode "\\.js$"
+    :hook (js2-mode . (lambda ()
 			 (flycheck-mode)
-			 (company-mode))))
+			 (company-mode)))
     :config
     ;; use eslint_d instead of eslint for faster linting
     (setq flycheck-javascript-eslint-executable "eslint_d"))
 
-  (use-package eslintd-fix)
+  (use-package eslintd-fix
+    :after js2-mode)
 
 #+END_SRC
 
@@ -218,22 +221,21 @@ https://github.com/CSRaghunandan/.emacs.d/blob/master/setup-files/setup-js.el
 #+BEGIN_SRC emacs-lisp
   (use-package rjsx-mode
     :after js2-mode
-    :mode ("\\.jsx$" . rjsx-mode)
+    :mode "\\.jsx$"
     :hook (rjsx-mode . (lambda ()
 			 (flycheck-mode)
 			 (company-mode)
 			 (js2-refactor-mode -1)))
-  :config (unbind-key "C-c C-l" rjsx-mode-map))
+    :config (unbind-key "C-c C-l" rjsx-mode-map))
 #+END_SRC
 
 *** json
 #+BEGIN_SRC emacs-lisp
   (use-package json-mode
+    :mode "\\.json\\'"
     :config
-    (add-hook 'json-mode-hook #'prettier-js-mode)
     (setq json-reformat:indent-width 2)
-    (setq json-reformat:pretty-string? t)
-    (setq js-indent-level 2))
+    (setq json-reformat:pretty-string? t))
 #+END_SRC
 *** Indium
 debugging with browser by connecting emacs to a browser tab
