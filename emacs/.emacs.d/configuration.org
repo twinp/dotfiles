@@ -119,6 +119,13 @@ calendar-longitude 1.311787)
 ** TODO people birthday
 ** TODO public holidays
 ** TODO sunrise sunset
+* Navigation
+** M-x suggestions with =smex=
+#+BEGIN_SRC emacs-lisp
+  (use-package smex
+    :init (smex-initialize)
+    :bind ("M-x" . smex))
+#+END_SRC
 * Git
 #+BEGIN_SRC emacs-lisp
   (use-package magit
