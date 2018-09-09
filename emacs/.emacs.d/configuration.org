@@ -246,6 +246,13 @@ https://github.com/prettier/prettier-emacs
 #+END_SRC
 *** Indium
 debugging with browser by connecting emacs to a browser tab
+** Markdown
+#+BEGIN_SRC emacs-lisp
+  (use-package markdown-mode
+    :mode (("\\.md\\'" . markdown-mode)
+	   ("README\\.md\\'" . gfm-mode)))
+#+END_SRC
+
 * Keystroke optimisation
 Replace 'yes' by 'y', 'no' by 'n' everywhere
 #+BEGIN_SRC emacs-lisp
