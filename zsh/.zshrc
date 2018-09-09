@@ -90,3 +90,6 @@ export EDITOR='emacs'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Ruby Gem
+PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
+export GEM_HOME=$(ruby -e 'print Gem.user_dir')
