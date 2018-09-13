@@ -38,6 +38,13 @@ Packages will be updated every 4 days, and the old packages will be removed.
         )
 #+END_SRC
 
+* General
+** No backup files
+Don't save ~ files
+#+BEGIN_SRC emacs-lisp
+(setq make-backup-files nil)
+#+END_SRC
+
 * Org
 ** Use org and set agenda files
 #+BEGIN_SRC emacs-lisp
