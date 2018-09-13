@@ -93,3 +93,7 @@ export EDITOR='emacs'
 # Ruby Gem
 PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
 export GEM_HOME=$(ruby -e 'print Gem.user_dir')
+
+# Golang
+export GOPATH="$HOME/go"
+export PATH="$PATH:$GOPATH/go/bin"
