@@ -260,6 +260,11 @@ debugging with browser by connecting emacs to a browser tab
 	   ("README\\.md\\'" . gfm-mode)))
 #+END_SRC
 
+** Terraform
+#+BEGIN_SRC emacs-lisp
+  (use-package terraform-mode
+    :mode "\\.tf\\'")
+#+END_SRC
 * Keystroke optimisation
 Replace 'yes' by 'y', 'no' by 'n' everywhere
 #+BEGIN_SRC emacs-lisp
