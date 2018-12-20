@@ -44,7 +44,14 @@ Don't save ~ files
 #+BEGIN_SRC emacs-lisp
 (setq make-backup-files nil)
 #+END_SRC
+** Path from shell
+#+BEGIN_SRC emacs-lisp
+  (use-package exec-path-from-shell
+    :config
+    (when (memq window-system '(mac ns x))
+      (exec-path-from-shell-initialize)))
 
+#+END_SRC
 * Org
 ** Use org and set agenda files
 #+BEGIN_SRC emacs-lisp
