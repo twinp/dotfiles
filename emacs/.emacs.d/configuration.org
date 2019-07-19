@@ -55,15 +55,18 @@ Don't save ~ files
 * Org
 ** Use org and set agenda files
 #+BEGIN_SRC emacs-lisp
-  (use-package org
-    :config
-    (setq org-agenda-files
-	  (quote
-	   ("~/Dropbox/Orgzly/work.org"
-	    "~/Dropbox/Orgzly/explore.org"
-	    "~/Dropbox/Orgzly/perso.org"
-	    "~/Dropbox/Orgzly/geek.org"
-	    "~/Dropbox/Orgzly/finance.org"))))
+    (use-package org
+      :config
+      (setq org-agenda-files
+	    (quote
+	     ("~/Dropbox/Orgzly/work.org"
+	      "~/Dropbox/Orgzly/explore.org"
+	      "~/Dropbox/Orgzly/perso.org"
+	      "~/Dropbox/Orgzly/geek.org"
+	      "~/Dropbox/Orgzly/finance.org"
+	      "~/Dropbox/Orgzly/travel.org"
+	      "~/Dropbox/Orgzly/cs.org"
+	      "~/Dropbox/Orgzly/crypto.org"))))
 
 #+END_SRC
 ** Pomodoro
