@@ -44,7 +44,14 @@ Don't save ~ files
 #+BEGIN_SRC emacs-lisp
 (setq make-backup-files nil)
 #+END_SRC
+** Path from shell
+#+BEGIN_SRC emacs-lisp
+  (use-package exec-path-from-shell
+    :config
+    (when (memq window-system '(mac ns x))
+      (exec-path-from-shell-initialize)))
 
+#+END_SRC
 * Org
 ** Use org and set agenda files
 #+BEGIN_SRC emacs-lisp
@@ -163,6 +170,7 @@ To avoid message: Symbolic link to Git-controlled source file; follow link? (y o
 	   ("README\\.md\\'" . gfm-mode)))
 #+END_SRC
 
+<<<<<<< HEAD
 ** Python
 #+BEGIN_SRC emacs-lisp
   (use-package elpy
@@ -171,6 +179,12 @@ To avoid message: Symbolic link to Git-controlled source file; follow link? (y o
     :init
     (advice-add 'python-mode :before 'elpy-enable))
 
+=======
+** Terraform
+#+BEGIN_SRC emacs-lisp
+  (use-package terraform-mode
+    :mode "\\.tf\\'")
+>>>>>>> 57fd2bf73a3416cb26928b5ab2c5854006205850
 #+END_SRC
 * Keystroke optimisation
 Replace 'yes' by 'y', 'no' by 'n' everywhere
