@@ -173,7 +173,6 @@ To avoid message: Symbolic link to Git-controlled source file; follow link? (y o
 	   ("README\\.md\\'" . gfm-mode)))
 #+END_SRC
 
-<<<<<<< HEAD
 ** Python
 #+BEGIN_SRC emacs-lisp
   (use-package elpy
@@ -181,13 +180,11 @@ To avoid message: Symbolic link to Git-controlled source file; follow link? (y o
     :defer t
     :init
     (advice-add 'python-mode :before 'elpy-enable))
-
-=======
+#+END_SRC
 ** Terraform
 #+BEGIN_SRC emacs-lisp
   (use-package terraform-mode
     :mode "\\.tf\\'")
->>>>>>> 57fd2bf73a3416cb26928b5ab2c5854006205850
 #+END_SRC
 * Keystroke optimisation
 Replace 'yes' by 'y', 'no' by 'n' everywhere
