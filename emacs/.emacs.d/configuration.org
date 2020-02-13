@@ -66,6 +66,7 @@ Don't save ~ files
 	      "~/Dropbox/Orgzly/finance.org"
 	      "~/Dropbox/Orgzly/travel.org"
 	      "~/Dropbox/Orgzly/cs.org"
+	      "~/Dropbox/Orgzly/todo.org"
 	      "~/Dropbox/Orgzly/crypto.org"))))
 
 #+END_SRC
