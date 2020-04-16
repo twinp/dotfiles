@@ -97,3 +97,9 @@ export GEM_HOME=$(ruby -e 'print Gem.user_dir')
 # Golang
 export GOPATH="$HOME/go"
 export PATH="$PATH:$GOPATH/go/bin"
+
+# Ibus input method
+export GTK_IM_MODULE=xim
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=xim
+ibus-daemon -drx
